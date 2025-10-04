@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MELANCHOLIA – Anime Merch</title>
+  <meta name="description" content="MELANCHOLIA – аниме мерч в стиле меланхолии. Купить через Telegram-бот." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <canvas id="pcanvas"></canvas>
+
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <div class="brand">
+          <span class="title">MELANCHOLIA</span>
+          <span class="tag">anime · melancholy · merch</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#brand">О бренде</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#contacts">Контакты</a>
+        <a class="cta" href="https://t.me/melancholiashop">Купить через Telegram</a>
+      </nav>
+    </header>
+
+    <%= yield %>
+
+    <footer id="contacts">
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div>
+          <strong style="color:var(--accent); font-weight:300; letter-spacing:2px">MELANCHOLIA</strong>
+          <div class="muted" style="font-size:12px; margin-top:4px">© <span id="year"></span> Все права защищены</div>
+        </div>
+      </div>
+
+      <div class="socials">
+        <a href="https://t.me/melancholiashop">Telegram</a>
+      </div>
+
+      <div class="muted" style="font-size:11px; letter-spacing:1px">anime · melancholy · merch</div>
+    </footer>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

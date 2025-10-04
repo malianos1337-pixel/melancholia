@@ -1,0 +1,84 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left" id="brand">
+    <div class="eyebrow">Атмосфера</div>
+    <h1>
+      MELANCHOLIA
+      <span class="type" id="type"></span>
+    </h1>
+    <p class="hero-desc">
+      Тёмная эстетика. Глубокая грусть в чёрно-белых красках. Мы создаём лимитированный аниме-мерч.
+    </p>
+
+    <div class="hero-actions">
+      <a class="cta" href="#catalog">Посмотреть каталог</a>
+      <a class="btn-ghost" href="#popular">Популярное</a>
+      <a class="btn-ghost" href="#info">Инфа про мерч</a>
+    </div>
+
+    <div style="margin-top:20px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <span class="pill">Стиль: меланхолия</span>
+      <span class="pill">Тема: экзистенция</span>
+      <span class="pill">Платёж: Telegram-бот</span>
+    </div>
+  </div>
+
+  <aside class="featured" id="popular">
+    <h3>Популярный мерч</h3>
+
+    <% @featured_items.each do |item| %>
+      <div class="item">
+        <div class="thumb">
+          <% if item[:img] %>
+            <img src="<%= item[:img] %>" alt="<%= item[:name] %>" width="64" height="64">
+          <% else %>
+            <%= item[:art] %>
+          <% end %>
+        </div>
+        <div class="meta">
+          <div class="name"><%= item[:name] %></div>
+          <div class="size muted"><%= item[:size] %></div>
+        </div>
+        <div class="price"><%= item[:price] %>₽</div>
+      </div>
+    <% end %>
+
+    <div style="margin-top:auto; display:flex; gap:8px;">
+      <a class="btn-ghost" href="#catalog">Весь каталог</a>
+    </div>
+  </aside>
+</section>
+
+<!-- INFO -->
+<section class="section" id="info">
+  <h2>Инфа про мерч</h2>
+  <p>
+    Каждый принт — авторская графика, напечатанная на качественных тканях. Тиражи ограничены,
+    поэтому коллекции выходят эпизодами. Отправка и оплата — через Telegram-бот.
+  </p>
+</section>
+
+<!-- CATALOG -->
+<section class="section" id="catalog">
+  <h2>Каталог</h2>
+
+  <div class="grid">
+    <% @catalog_items.each do |item| %>
+      <article class="card">
+        <div class="img">
+          <% if item[:img] && item[:img].start_with?('/images/') %>
+            <img src="<%= item[:img] %>" alt="<%= item[:name] %>" width="180" height="180">
+          <% else %>
+            <%= item[:img] %>
+          <% end %>
+        </div>
+        <h3><%= item[:name] %></h3>
+        <div class="muted"><%= item[:size] %></div>
+        <div class="foot">
+          <div class="price"><%= item[:price] %>₽</div>
+          <a class="btn-ghost" href="https://t.me/<%= settings.bot_name %>">Купить</a>
+        </div>
+      </article>
+    <% end %>
+  </div>
+</section>
